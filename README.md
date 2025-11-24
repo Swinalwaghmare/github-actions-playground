@@ -150,5 +150,3 @@ Creates VPC, subnet, and EC2 resources.
 ### Destroy
 
 Safely deletes everything while keeping the S3 state stored.
-
----
