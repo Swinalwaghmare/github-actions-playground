@@ -45,12 +45,12 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        if: ${{ github.event.input.action == 'plan' || github.event.input.action == 'apply'}}
+        if: ${{ github.event.inputs.action == 'plan' || github.event.inputs.action == 'apply'}}
         run: terraform plan -out=tfplan
 
       # Only apply when action == 'apply' and user confirmed
       - name: Terraform Apply
-        if: ${{ github.event.input.action == 'apply' && github.event.input.confirm == 'yes'}}
+        if: ${{ github.event.inputs.action == 'apply' && github.event.inputs.confirm == 'yes'}}
         # optional safeguard: run only on main branch
         run: terraform apply -auto-approve tfplan
 
